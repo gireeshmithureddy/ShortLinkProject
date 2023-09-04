@@ -26,6 +26,7 @@ jobs:
         python -m pip install --upgrade pip
         pip3 install django
         pip3 install djangorestframework
+        pip3 install requests
     - name: Run Tests
       run: |
         python manage.py test
