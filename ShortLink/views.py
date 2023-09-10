@@ -24,9 +24,7 @@ class ShortLinkCreateView(APIView):
         short_link = "http://localhost:8000/" + short_code
         serialize = ShortLink(short_code=short_code, long_url=long_url)
         serialize.save()
-        print(short_link)
-
-        return Response({'short_url': short_link}, status=status.HTTP_201_CREATED)
+        return Response({'short_url': short_link, 'long_url': long_url}, status=status.HTTP_201_CREATED)
     
     def get(self, request):
         short_urls = ShortLink.objects.all()
